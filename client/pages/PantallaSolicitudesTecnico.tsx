@@ -157,6 +157,7 @@ const requestsData = {
 export default function PantallaSolicitudesTecnico() {
   const [activeTab, setActiveTab] = useState("disponibles");
   const [searchQuery, setSearchQuery] = useState("");
+  const [expandedCard, setExpandedCard] = useState<string | null>(null);
 
   const tabs = [
     { 
