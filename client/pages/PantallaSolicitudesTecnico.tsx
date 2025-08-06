@@ -1,23 +1,23 @@
 import { useState } from "react";
-import { 
-  Bell,
-  User,
-  MapPin,
+import {
   Calendar,
   Clock,
   DollarSign,
   Phone,
   Eye,
   CheckCircle,
-  AlertCircle,
   Search,
   Filter,
+  ChevronDown,
+  ChevronUp,
   Zap,
   Wrench,
   Settings,
   Hammer
 } from "lucide-react";
+import Header from "../components/Header";
 import BottomNavigation from "../components/BottomNavigation";
+import { getCategoryInfo, getSubcategoryInfo, getStatusStyle } from "../lib/categories";
 
 // Dummy data for technician requests
 const requestsData = {
