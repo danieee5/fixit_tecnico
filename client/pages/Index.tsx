@@ -1,5 +1,3 @@
-import { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
 import {
   Bell,
   Search,
@@ -8,17 +6,14 @@ import {
   Clock,
   MapPin,
   GraduationCap,
-  Home,
-  Wrench,
-  User,
   Gift,
   Award,
   ChevronRight,
   Play
 } from "lucide-react";
+import BottomNavigation from "../components/BottomNavigation";
 
 export default function Index() {
-  const location = useLocation();
 
   return (
     <div className="min-h-screen bg-background font-inter">
@@ -301,30 +296,7 @@ export default function Index() {
         </div>
       </div>
 
-      {/* Bottom Navigation */}
-      <nav className="fixed bottom-0 left-0 right-0 bg-white border-t border-border">
-        <div className="flex items-center justify-around py-2">
-          {[
-            { path: "/", icon: Home, label: "Inicio" },
-            { path: "/certifications", icon: GraduationCap, label: "Certificaciones" },
-            { path: "/services", icon: Wrench, label: "Servicios" },
-            { path: "/profile", icon: User, label: "Perfil" }
-          ].map((item) => (
-            <Link
-              key={item.path}
-              to={item.path}
-              className={`flex flex-col items-center space-y-1 py-2 px-3 rounded-lg transition-colors ${
-                location.pathname === item.path
-                  ? "text-technician-primary"
-                  : "text-muted-foreground"
-              }`}
-            >
-              <item.icon className="w-6 h-6" />
-              <span className="text-xs font-medium">{item.label}</span>
-            </Link>
-          ))}
-        </div>
-      </nav>
+      <BottomNavigation />
     </div>
   );
 }
