@@ -67,7 +67,7 @@ const coursesData = [
     price: "Gratis",
     originalPrice: "$45",
     icon: Settings,
-    category: "instalaci��n",
+    category: "instalación",
     level: "básico",
     type: "beca"
   }
@@ -100,23 +100,24 @@ export default function Index() {
 
   return (
     <div className="min-h-screen bg-background font-inter">
-      {/* Header */}
-      <header className="bg-white/90 backdrop-blur-md border-b border-border px-4 py-4 sticky top-0 z-50">
-        <div className="flex items-center justify-between">
+      {/* Shared Header */}
+      <Header
+        userName="Carlos"
+        location="Centro, Caracas"
+        notificationCount={3}
+      />
+
+      {/* Warm Greeting Section */}
+      <div className="px-5 pt-6 pb-4">
+        <div className="flex items-center space-x-3">
           <div>
-            <h1 className="text-lg font-semibold text-foreground">
-              Hola, <span className="text-technician-primary">Carlos</span>
+            <h1 className="text-2xl font-bold text-foreground">
+              ¡Hola, <span className="text-technician-primary">Carlos</span>! 👋
             </h1>
-            <p className="text-sm text-muted-foreground">¿Listo para trabajar hoy?</p>
-          </div>
-          <div className="relative">
-            <Bell className="w-6 h-6 text-muted-foreground" />
-            <div className="absolute -top-1 -right-1 w-3 h-3 bg-technician-primary rounded-full flex items-center justify-center">
-              <span className="text-xs text-white font-bold">3</span>
-            </div>
+            <p className="text-muted-foreground mt-1">¿Listo para brindar el mejor servicio hoy?</p>
           </div>
         </div>
-      </header>
+      </div>
 
       {/* Search Bar */}
       <div className="px-4 py-4">
