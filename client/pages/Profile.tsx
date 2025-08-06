@@ -229,11 +229,11 @@ export default function Profile() {
               <p className="text-muted-foreground text-sm mb-4">
                 Puedes cambiar de rol para solicitar ayuda como cliente.
               </p>
-              <button 
+              <button
                 className="bg-technician-primary text-white px-6 py-3 font-medium flex items-center space-x-2 hover:bg-orange-600 transition-colors"
                 style={{ borderRadius: '16px' }}
               >
-                <Person className="w-4 h-4" />
+                <UserCheck className="w-4 h-4" />
                 <span>Regresar a rol de Cliente</span>
               </button>
             </div>
