@@ -1,16 +1,16 @@
 import { useState } from "react";
-import { 
-  ArrowLeft, 
-  AttachMoney, 
-  Schedule, 
-  WorkspacePremium,
+import {
+  ArrowLeft,
+  DollarSign,
+  Clock,
+  Award,
   CheckCircle,
   TrendingUp,
   ThumbUp,
-  Speed,
-  Map,
-  EmojiEvents,
-  FilterList,
+  Zap,
+  MapPin,
+  Trophy,
+  Filter,
   TrendingDown
 } from "lucide-react";
 import { Link } from "react-router-dom";
