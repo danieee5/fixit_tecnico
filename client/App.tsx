@@ -10,6 +10,8 @@ import Index from "./pages/Index";
 import Certifications from "./pages/Certifications";
 import Services from "./pages/Services";
 import Profile from "./pages/Profile";
+import PantallaServicios from "./pages/PantallaServicios";
+import PantallaSolicitudes from "./pages/PantallaSolicitudes";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
