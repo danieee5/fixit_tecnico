@@ -103,7 +103,7 @@ export default function Index() {
       {/* Shared Header */}
       <Header
         userName="Carlos"
-        location="Centro, Caracas"
+        location="Guayaquil, Ecuador"
         notificationCount={3}
       />
 
