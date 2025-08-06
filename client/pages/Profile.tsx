@@ -283,6 +283,12 @@ export default function Profile() {
       </div>
 
       <BottomNavigation />
+
+      {/* Notifications Modal */}
+      <NotificationsModal
+        isOpen={showNotifications}
+        onClose={() => setShowNotifications(false)}
+      />
     </div>
   );
 }
