@@ -1,17 +1,9 @@
-import {
-  Zap,
-  Wrench,
-  Hammer,
-  PaintBrush,
-  Snowflake,
-  Microwave,
-  MoreHorizontal,
-  Wrench as Build,
-  Construction,
+import { 
+  Zap, 
+  Wrench, 
+  Hammer, 
   Settings,
-  Trash,
-  Search,
-  HelpCircle
+  Search
 } from "lucide-react";
 
 // Category definitions with icons and colors
@@ -31,24 +23,14 @@ export const CATEGORIES = {
     icon: Hammer,
     color: "#8D6E63"
   },
-  pintura: {
-    name: "Pintura",
-    icon: PaintBrush,
-    color: "#EC407A"
-  },
-  climatizacion: {
-    name: "Climatización",
-    icon: Snowflake,
-    color: "#4FC3F7"
-  },
   electrodomesticos: {
     name: "Electrodomésticos",
-    icon: Microwave,
+    icon: Settings,
     color: "#BA68C8"
   },
   otros: {
     name: "Otros",
-    icon: MoreHorizontal,
+    icon: Settings,
     color: "#BDBDBD"
   }
 } as const;
@@ -57,12 +39,12 @@ export const CATEGORIES = {
 export const SUBCATEGORIES = {
   instalacion: {
     name: "Instalación",
-    icon: Build,
+    icon: Wrench,
     color: "#2196F3"
   },
   reparacion: {
     name: "Reparación",
-    icon: Construction,
+    icon: Settings,
     color: "#F44336"
   },
   mantenimiento: {
@@ -70,19 +52,9 @@ export const SUBCATEGORIES = {
     icon: Settings,
     color: "#4CAF50"
   },
-  desinstalacion: {
-    name: "Desinstalación",
-    icon: Trash,
-    color: "#9C27B0"
-  },
-  revision: {
-    name: "Revisión",
-    icon: Search,
-    color: "#FFC107"
-  },
   otro: {
     name: "Otro",
-    icon: HelpCircle,
+    icon: Search,
     color: "#9E9E9E"
   }
 } as const;
