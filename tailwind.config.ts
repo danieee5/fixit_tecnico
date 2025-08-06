@@ -47,21 +47,29 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        sidebar: {
-          DEFAULT: "hsl(var(--sidebar-background))",
-          foreground: "hsl(var(--sidebar-foreground))",
-          primary: "hsl(var(--sidebar-primary))",
-          "primary-foreground": "hsl(var(--sidebar-primary-foreground))",
-          accent: "hsl(var(--sidebar-accent))",
-          "accent-foreground": "hsl(var(--sidebar-accent-foreground))",
-          border: "hsl(var(--sidebar-border))",
-          ring: "hsl(var(--sidebar-ring))",
+        // FixIt Home technician color palette
+        technician: {
+          primary: "#EA8B49",
+          secondary: "#F4C880",
+          background: "#E9EEF0",
+          card: "#F4F7FA",
+          text: {
+            primary: "#272620",
+            secondary: "#6D6D69",
+            placeholder: "#A4A4A4",
+          },
+          border: "#B2CBD5",
         },
       },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
+      },
+      fontFamily: {
+        'raleway': ['Raleway', 'sans-serif'],
+        'inter': ['Inter', 'sans-serif'],
+        'roboto': ['Roboto', 'sans-serif'],
       },
       keyframes: {
         "accordion-down": {
@@ -80,10 +88,28 @@ export default {
             height: "0",
           },
         },
+        "soft-bounce": {
+          "0%, 100%": {
+            transform: "scale(1)",
+          },
+          "50%": {
+            transform: "scale(0.97)",
+          },
+        },
+        "glass-shimmer": {
+          "0%, 100%": {
+            opacity: "0.8",
+          },
+          "50%": {
+            opacity: "1",
+          },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "soft-bounce": "soft-bounce 0.3s ease-out",
+        "glass-shimmer": "glass-shimmer 2s ease-in-out infinite",
       },
     },
   },
