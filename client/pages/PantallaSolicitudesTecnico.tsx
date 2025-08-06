@@ -43,21 +43,24 @@ const requestsData = {
       clientPhone: "+58 412-123-4567"
     },
     {
-      id: "REQ-002", 
+      id: "REQ-002",
       title: "Plomería - Reparación",
-      category: "Plomería",
-      subcategory: "Reparación",
+      category: "plomeria",
+      subcategory: "reparacion",
       description: "Reparar fuga de agua en grifería de cocina",
+      fullDescription: "Hay una fuga constante en el grifo de la cocina que está causando desperdicio de agua. El grifo gotea incluso cuando está cerrado completamente.",
       client: "Carlos Mendoza",
       date: "2024-03-15",
       time: "09:00",
       location: "Norte",
       address: "Calle 45 #12-34",
       price: 65,
-      urgency: "Urgente",
-      status: "Publicado",
-      icon: Wrench,
-      isNew: false
+      urgency: "urgente",
+      status: "publicado",
+      isNew: false,
+      validationCode: "L9K3XM",
+      photos: ["photo3.jpg"],
+      clientPhone: "+58 414-567-8901"
     },
     {
       id: "REQ-003",
