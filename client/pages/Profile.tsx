@@ -15,7 +15,7 @@ export default function Profile() {
         </div>
       </header>
 
-      <div className="flex flex-col items-center justify-center min-h-[60vh] px-4">
+      <div className="flex flex-col items-center justify-center min-h-[60vh] px-4 pb-20">
         <div className="text-center">
           <User className="w-16 h-16 text-technician-primary mx-auto mb-4" />
           <h2 className="text-2xl font-bold text-foreground mb-2">Perfil</h2>
