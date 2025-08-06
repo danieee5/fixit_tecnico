@@ -178,36 +178,6 @@ export default function Profile() {
           </div>
         </div>
 
-        {/* Additional Stats */}
-        <div 
-          className="bg-white p-5 mt-6 shadow-sm"
-          style={{ borderRadius: '20px' }}
-        >
-          <h3 className="text-lg font-semibold text-foreground mb-4">Estadísticas del mes</h3>
-          <div className="space-y-3">
-            <div className="flex items-center justify-between">
-              <div className="flex items-center space-x-3">
-                <TrendingUp className="w-5 h-5 text-green-500" />
-                <span className="text-foreground">Ingresos totales</span>
-              </div>
-              <span className="font-semibold text-technician-primary">$2,840</span>
-            </div>
-            <div className="flex items-center justify-between">
-              <div className="flex items-center space-x-3">
-                <Briefcase className="w-5 h-5 text-blue-500" />
-                <span className="text-foreground">Servicios este mes</span>
-              </div>
-              <span className="font-semibold text-foreground">23</span>
-            </div>
-            <div className="flex items-center justify-between">
-              <div className="flex items-center space-x-3">
-                <Star className="w-5 h-5 text-yellow-500" />
-                <span className="text-foreground">Nuevas reseñas</span>
-              </div>
-              <span className="font-semibold text-foreground">12</span>
-            </div>
-          </div>
-        </div>
       </div>
 
       <BottomNavigation />
