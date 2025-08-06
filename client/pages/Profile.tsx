@@ -66,31 +66,6 @@ export default function Profile() {
 
   return (
     <div className="min-h-screen bg-background font-inter">
-      {/* Header */}
-      <header className="bg-white/95 backdrop-blur-md border-b border-border px-5 py-4 sticky top-0 z-50">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center">
-            <Link to="/" className="mr-4">
-              <ArrowLeft className="w-6 h-6 text-muted-foreground" />
-            </Link>
-            <h1 className="text-xl font-semibold text-foreground">Mi Perfil</h1>
-          </div>
-          <div className="flex items-center space-x-2">
-            <button
-              onClick={() => setShowNotifications(true)}
-              className="p-2 rounded-full hover:bg-gray-100 transition-colors relative"
-            >
-              <Bell className="w-6 h-6 text-muted-foreground" />
-              <div className="absolute -top-1 -right-1 w-4 h-4 bg-technician-primary rounded-full flex items-center justify-center">
-                <span className="text-xs text-white font-bold">2</span>
-              </div>
-            </button>
-            <button className="p-2 rounded-full hover:bg-gray-100 transition-colors">
-              <Settings className="w-6 h-6 text-muted-foreground" />
-            </button>
-          </div>
-        </div>
-      </header>
 
       <div className="px-5 py-6 pb-24">
         {/* Role Selector */}
