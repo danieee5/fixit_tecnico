@@ -1,13 +1,13 @@
-import { 
-  ArrowLeft, 
+import {
+  ArrowLeft,
   Settings,
   User,
   Edit,
-  Assignment,
-  Work,
+  FileText,
+  Briefcase,
   Bell,
   Headphones,
-  Person,
+  UserCheck,
   Star,
   Clock,
   TrendingUp,
