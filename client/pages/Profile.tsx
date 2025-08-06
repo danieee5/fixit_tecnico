@@ -151,31 +151,30 @@ export default function Profile() {
           </div>
         </div>
 
-        {/* Role Change Card */}
-        <div 
-          className="bg-gradient-to-r from-blue-50 to-indigo-50 p-5 shadow-sm"
-          style={{ borderRadius: '20px' }}
-        >
-          <div className="flex items-start space-x-4">
-            <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
-              <UserCheck className="w-6 h-6 text-blue-600" />
+        {/* Role Change Section */}
+        <div className="text-center mb-6">
+          <div
+            className="bg-gradient-to-r from-blue-50 to-indigo-50 p-6 shadow-sm mb-4"
+            style={{ borderRadius: '20px' }}
+          >
+            <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <UserCheck className="w-8 h-8 text-blue-600" />
             </div>
-            <div className="flex-1">
-              <h3 className="text-lg font-semibold text-foreground mb-1">
-                ¿Necesitas un servicio como cliente?
-              </h3>
-              <p className="text-muted-foreground text-sm mb-4">
-                Puedes cambiar de rol para solicitar ayuda como cliente.
-              </p>
-              <button
-                className="bg-technician-primary text-white px-6 py-3 font-medium flex items-center space-x-2 hover:bg-orange-600 transition-colors"
-                style={{ borderRadius: '16px' }}
-              >
-                <UserCheck className="w-4 h-4" />
-                <span>Regresar a rol de Cliente</span>
-              </button>
-            </div>
+            <h3 className="text-lg font-semibold text-foreground mb-2">
+              ¿Necesitas un servicio como cliente?
+            </h3>
+            <p className="text-muted-foreground text-sm mb-6">
+              Puedes cambiar de rol para solicitar ayuda como cliente.
+            </p>
           </div>
+
+          <button
+            className="w-full max-w-sm mx-auto border-2 border-technician-primary text-technician-primary px-6 py-3 font-medium flex items-center justify-center space-x-2 hover:bg-technician-primary hover:text-white transition-colors"
+            style={{ borderRadius: '16px' }}
+          >
+            <UserCheck className="w-5 h-5" />
+            <span>Volver a rol de Cliente</span>
+          </button>
         </div>
 
       </div>
