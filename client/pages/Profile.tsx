@@ -220,7 +220,7 @@ export default function Profile() {
         >
           <div className="flex items-start space-x-4">
             <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
-              <Person className="w-6 h-6 text-blue-600" />
+              <UserCheck className="w-6 h-6 text-blue-600" />
             </div>
             <div className="flex-1">
               <h3 className="text-lg font-semibold text-foreground mb-1">
