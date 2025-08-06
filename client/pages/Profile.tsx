@@ -53,7 +53,7 @@ export default function Profile() {
       title: "Notificaciones",
       subtitle: "Configurar alertas y avisos",
       icon: Bell,
-      count: null
+      count: 2
     },
     {
       id: "support",
