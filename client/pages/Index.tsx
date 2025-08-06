@@ -17,6 +17,7 @@ import {
   ArrowRight
 } from "lucide-react";
 import { Link } from "react-router-dom";
+import Header from "../components/Header";
 import BottomNavigation from "../components/BottomNavigation";
 
 // Dummy data for search functionality
@@ -66,7 +67,7 @@ const coursesData = [
     price: "Gratis",
     originalPrice: "$45",
     icon: Settings,
-    category: "instalación",
+    category: "instalaci��n",
     level: "básico",
     type: "beca"
   }
