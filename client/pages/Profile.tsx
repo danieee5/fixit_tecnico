@@ -68,34 +68,6 @@ export default function Profile() {
     <div className="min-h-screen bg-background font-inter">
 
       <div className="px-5 py-6 pb-24">
-        {/* Role Selector */}
-        <div className="mb-6">
-          <div 
-            className="flex bg-gray-100 p-1 rounded-full"
-            style={{ borderRadius: '20px' }}
-          >
-            <button
-              onClick={() => setCurrentRole("tecnico")}
-              className={`flex-1 py-2 px-4 rounded-full font-medium text-sm transition-colors ${
-                currentRole === "tecnico"
-                  ? "bg-technician-primary text-white shadow-sm"
-                  : "text-muted-foreground"
-              }`}
-            >
-              Técnico
-            </button>
-            <button
-              onClick={() => setCurrentRole("cliente")}
-              className={`flex-1 py-2 px-4 rounded-full font-medium text-sm transition-colors ${
-                currentRole === "cliente"
-                  ? "bg-technician-primary text-white shadow-sm"
-                  : "text-muted-foreground"
-              }`}
-            >
-              Cliente
-            </button>
-          </div>
-        </div>
 
         {/* User Information Card */}
         <div 
