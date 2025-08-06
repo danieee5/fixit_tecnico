@@ -134,7 +134,7 @@ const achievements = [
   {
     title: "Favorito del cliente",
     description: "20 calificaciones positivas",
-    icon: ThumbUp,
+    icon: ThumbsUp,
     earned: true
   },
   {
