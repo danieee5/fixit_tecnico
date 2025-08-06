@@ -25,19 +25,22 @@ const requestsData = {
     {
       id: "REQ-001",
       title: "Electricidad - Instalación",
-      category: "Electricidad",
-      subcategory: "Instalación",
+      category: "electricidad",
+      subcategory: "instalacion",
       description: "Instalar nuevos interruptores y tomacorrientes en sala y dormitorio principal",
+      fullDescription: "Necesito instalar 3 interruptores nuevos en la sala y 2 tomacorrientes adicionales en el dormitorio principal. El trabajo incluye hacer las conexiones necesarias y asegurar que todo quede funcionando correctamente.",
       client: "María González",
       date: "2024-03-15",
       time: "14:30",
       location: "Centro",
       address: "Av. Libertador 1234, Apt 5B",
       price: 85,
-      urgency: "Normal",
-      status: "Publicado",
-      icon: Zap,
-      isNew: true
+      urgency: "normal",
+      status: "publicado",
+      isNew: true,
+      validationCode: "K8S9ZP",
+      photos: ["photo1.jpg", "photo2.jpg"],
+      clientPhone: "+58 412-123-4567"
     },
     {
       id: "REQ-002", 
