@@ -18,7 +18,7 @@ import {
 } from "lucide-react";
 
 export default function Index() {
-  const [activeTab, setActiveTab] = useState("home");
+  const location = useLocation();
 
   return (
     <div className="min-h-screen bg-background font-inter">
