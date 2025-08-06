@@ -193,6 +193,14 @@ export default function Profile() {
             {quickAccessItems.map((item, index) => (
               <button
                 key={item.id}
+                onClick={() => {
+                  if (item.id === "notifications") {
+                    setShowNotifications(true);
+                  } else {
+                    // Handle other navigation items
+                    console.log("Navigate to:", item.id);
+                  }
+                }}
                 className="w-full p-5 flex items-center space-x-4 hover:bg-gray-50 transition-colors active:bg-gray-100"
               >
                 <div className="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center">
