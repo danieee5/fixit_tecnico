@@ -194,12 +194,12 @@ export default function PantallaDesempenoTecnico() {
           <h2 className="text-lg font-semibold text-foreground mb-4">Resumen mensual</h2>
           <div className="grid grid-cols-2 gap-4">
             <div className="card-soft text-center">
-              <AttachMoney className="w-8 h-8 text-technician-primary mx-auto mb-2" />
+              <DollarSign className="w-8 h-8 text-technician-primary mx-auto mb-2" />
               <p className="text-2xl font-bold text-foreground">${monthlyMetrics.earnings.toLocaleString()}</p>
               <p className="text-sm text-muted-foreground">Ingresos del mes</p>
             </div>
             <div className="card-soft text-center">
-              <Schedule className="w-8 h-8 text-technician-primary mx-auto mb-2" />
+              <Clock className="w-8 h-8 text-technician-primary mx-auto mb-2" />
               <p className="text-2xl font-bold text-foreground">{monthlyMetrics.averageTime}h</p>
               <p className="text-sm text-muted-foreground">Tiempo promedio</p>
             </div>
