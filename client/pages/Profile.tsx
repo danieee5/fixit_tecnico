@@ -20,6 +20,7 @@ import NotificationsModal from "../components/NotificationsModal";
 
 export default function Profile() {
   const [currentRole, setCurrentRole] = useState("tecnico");
+  const [showNotifications, setShowNotifications] = useState(false);
 
   // User data (in a real app, this would come from a context or API)
   const userData = {
