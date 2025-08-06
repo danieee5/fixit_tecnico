@@ -33,7 +33,7 @@ export const CATEGORIES = {
   },
   pintura: {
     name: "Pintura",
-    icon: Paintbrush,
+    icon: PaintBrush,
     color: "#EC407A"
   },
   climatizacion: {
