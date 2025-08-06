@@ -1,5 +1,6 @@
 import { User, ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
+import BottomNavigation from "../components/BottomNavigation";
 
 export default function Profile() {
   return (
@@ -26,6 +27,8 @@ export default function Profile() {
           </p>
         </div>
       </div>
+
+      <BottomNavigation />
     </div>
   );
 }
