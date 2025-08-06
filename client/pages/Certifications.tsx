@@ -1,5 +1,6 @@
 import { GraduationCap, ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
+import BottomNavigation from "../components/BottomNavigation";
 
 export default function Certifications() {
   return (
@@ -26,6 +27,8 @@ export default function Certifications() {
           </p>
         </div>
       </div>
+
+      <BottomNavigation />
     </div>
   );
 }
