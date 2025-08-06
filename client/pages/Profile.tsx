@@ -67,7 +67,8 @@ export default function Profile() {
   return (
     <div className="min-h-screen bg-background font-inter">
 
-      <div className="px-5 py-6 pb-24">
+      <div className="px-4 pt-8 pb-24 overflow-y-auto"
+           style={{ minHeight: 'calc(100vh - 56px)' }}>
 
         {/* User Information Card */}
         <div 
