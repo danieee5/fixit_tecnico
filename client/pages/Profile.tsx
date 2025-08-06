@@ -36,14 +36,14 @@ export default function Profile() {
       id: "history",
       title: "Historial de solicitudes",
       subtitle: "Ver todas mis solicitudes completadas",
-      icon: Assignment,
+      icon: FileText,
       count: userData.completedServices
     },
     {
       id: "active",
       title: "Servicios activos",
       subtitle: "Solicitudes en progreso",
-      icon: Work,
+      icon: Briefcase,
       count: 3
     },
     {
