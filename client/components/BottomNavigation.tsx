@@ -1,5 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
-import { Home, GraduationCap, Wrench, User } from "lucide-react";
+import { Home, TrendingUp, Wrench, User } from "lucide-react";
 
 export default function BottomNavigation() {
   const location = useLocation();
