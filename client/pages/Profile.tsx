@@ -256,7 +256,7 @@ export default function Profile() {
             </div>
             <div className="flex items-center justify-between">
               <div className="flex items-center space-x-3">
-                <Work className="w-5 h-5 text-blue-500" />
+                <Briefcase className="w-5 h-5 text-blue-500" />
                 <span className="text-foreground">Servicios este mes</span>
               </div>
               <span className="font-semibold text-foreground">23</span>
