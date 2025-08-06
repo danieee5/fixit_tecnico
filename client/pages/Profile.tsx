@@ -110,11 +110,11 @@ export default function Profile() {
 
 
         {/* Quick Access Items */}
-        <div 
+        <div
           className="bg-white shadow-sm mb-6"
           style={{ borderRadius: '20px' }}
         >
-          <div className="p-5 border-b border-gray-100">
+          <div className="px-5 py-4 border-b border-gray-100">
             <h3 className="text-lg font-semibold text-foreground">Accesos rápidos</h3>
           </div>
           <div className="divide-y divide-gray-100">
@@ -129,23 +129,23 @@ export default function Profile() {
                     console.log("Navigate to:", item.id);
                   }
                 }}
-                className="w-full p-5 flex items-center space-x-4 hover:bg-gray-50 transition-colors active:bg-gray-100"
+                className="w-full px-5 py-4 flex items-center space-x-4 hover:bg-gray-50 transition-colors active:bg-gray-100 touch-manipulation"
               >
-                <div className="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center">
-                  <item.icon className="w-5 h-5 text-technician-primary" />
+                <div className="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center flex-shrink-0">
+                  <item.icon className="w-6 h-6 text-technician-primary" />
                 </div>
-                <div className="flex-1 text-left">
-                  <div className="flex items-center space-x-2">
+                <div className="flex-1 text-left min-w-0">
+                  <div className="flex items-center space-x-2 mb-1">
                     <h4 className="font-medium text-foreground">{item.title}</h4>
                     {item.count && (
-                      <span className="bg-technician-primary text-white text-xs px-2 py-1 rounded-full">
+                      <span className="bg-technician-primary text-white text-xs px-2 py-1 rounded-full flex-shrink-0">
                         {item.count}
                       </span>
                     )}
                   </div>
                   <p className="text-sm text-muted-foreground">{item.subtitle}</p>
                 </div>
-                <ChevronRight className="w-5 h-5 text-muted-foreground" />
+                <ChevronRight className="w-5 h-5 text-muted-foreground flex-shrink-0" />
               </button>
             ))}
           </div>
