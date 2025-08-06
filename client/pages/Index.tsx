@@ -54,7 +54,7 @@ const coursesData = [
     price: "$79",
     originalPrice: "$140",
     icon: Hammer,
-    category: "carpintería",
+    category: "carpinter��a",
     level: "intermedio"
   },
   {
@@ -250,10 +250,10 @@ export default function Index() {
       <div className="mb-6">
         <div className="px-4 mb-4 flex items-center justify-between">
           <h3 className="text-lg font-semibold text-foreground">Tus servicios en curso</h3>
-          <button className="text-technician-primary font-medium text-sm flex items-center">
+          <Link to="/mis-servicios" className="text-technician-primary font-medium text-sm flex items-center">
             Ver todos
             <ArrowRight className="w-4 h-4 ml-1" />
-          </button>
+          </Link>
         </div>
         <div className="overflow-x-auto">
           <div className="flex space-x-4 px-4">
