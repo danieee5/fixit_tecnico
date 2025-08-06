@@ -16,6 +16,7 @@ import {
   Settings,
   ArrowRight
 } from "lucide-react";
+import { Link } from "react-router-dom";
 import BottomNavigation from "../components/BottomNavigation";
 
 // Dummy data for search functionality
