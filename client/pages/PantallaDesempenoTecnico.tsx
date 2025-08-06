@@ -163,11 +163,11 @@ export default function PantallaDesempenoTecnico() {
   const getPositionIcon = (position: number) => {
     switch (position) {
       case 1:
-        return <EmojiEvents className="w-6 h-6 text-yellow-500" />;
+        return <Trophy className="w-6 h-6 text-yellow-500" />;
       case 2:
-        return <WorkspacePremium className="w-6 h-6 text-gray-400" />;
+        return <Award className="w-6 h-6 text-gray-400" />;
       case 3:
-        return <WorkspacePremium className="w-6 h-6 text-orange-600" />;
+        return <Award className="w-6 h-6 text-orange-600" />;
       default:
         return null;
     }
