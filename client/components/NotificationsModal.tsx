@@ -1,13 +1,14 @@
 import { useState } from "react";
-import { 
-  X, 
-  MapPin, 
-  CheckCircle, 
-  Camera, 
-  Clock, 
-  MessageCircle, 
+import {
+  X,
+  MapPin,
+  CheckCircle,
+  Camera,
+  Clock,
+  MessageCircle,
   Star,
-  Filter
+  Filter,
+  Bell
 } from "lucide-react";
 
 interface NotificationsModalProps {
