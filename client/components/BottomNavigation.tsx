@@ -7,7 +7,7 @@ export default function BottomNavigation() {
   const navItems = [
     { path: "/", icon: Home, label: "Inicio" },
     { path: "/mi-desempeno", icon: TrendingUp, label: "Mi Desempeño" },
-    { path: "/services", icon: Wrench, label: "Servicios" },
+    { path: "/solicitudes-tecnico", icon: ClipboardList, label: "Solicitudes" },
     { path: "/profile", icon: User, label: "Perfil" }
   ];
 
