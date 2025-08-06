@@ -157,7 +157,7 @@ export default function Profile() {
           <div className="grid grid-cols-3 gap-4">
             <div className="text-center">
               <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-2">
-                <Work className="w-6 h-6 text-green-600" />
+                <Briefcase className="w-6 h-6 text-green-600" />
               </div>
               <p className="text-2xl font-bold text-foreground">{userData.completedServices}</p>
               <p className="text-xs text-muted-foreground">Servicios completados</p>
