@@ -221,36 +221,12 @@ export default function PantallaSolicitudesTecnico() {
 
   return (
     <div className="min-h-screen bg-background font-inter">
-      {/* Persistent Header */}
-      <header className="bg-white/90 backdrop-blur-md border-b border-border px-4 py-4 sticky top-0 z-50">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center space-x-3">
-            {/* Technician Avatar */}
-            <div className="w-12 h-12 bg-technician-primary rounded-full flex items-center justify-center">
-              <User className="w-6 h-6 text-white" />
-            </div>
-            <div>
-              <h1 className="text-lg font-semibold text-foreground">
-                Hola, <span className="text-technician-primary">Carlos</span>
-              </h1>
-              <div className="flex items-center space-x-1 text-sm text-muted-foreground">
-                <MapPin className="w-4 h-4" />
-                <span>Centro, Caracas</span>
-              </div>
-            </div>
-          </div>
-          
-          {/* Notifications */}
-          <div className="relative">
-            <Bell className="w-6 h-6 text-muted-foreground" />
-            {newNotificationsCount > 0 && (
-              <div className="absolute -top-1 -right-1 w-5 h-5 bg-technician-primary rounded-full flex items-center justify-center">
-                <span className="text-xs text-white font-bold">{newNotificationsCount}</span>
-              </div>
-            )}
-          </div>
-        </div>
-      </header>
+      {/* Shared Header */}
+      <Header
+        userName="Carlos"
+        location="Centro, Caracas"
+        notificationCount={newNotificationsCount}
+      />
 
       {/* Search Bar */}
       <div className="px-4 py-4">
