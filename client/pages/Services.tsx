@@ -1,5 +1,6 @@
 import { Wrench, ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
+import BottomNavigation from "../components/BottomNavigation";
 
 export default function Services() {
   return (
@@ -26,6 +27,8 @@ export default function Services() {
           </p>
         </div>
       </div>
+
+      <BottomNavigation />
     </div>
   );
 }
