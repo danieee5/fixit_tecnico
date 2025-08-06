@@ -333,7 +333,7 @@ export default function PantallaDesempenoTecnico() {
         <div className="mb-6">
           <div className="card-glass bg-gradient-to-r from-technician-primary/10 to-technician-secondary/10 p-6">
             <div className="flex items-start space-x-4">
-              <WorkspacePremium className="w-12 h-12 text-technician-primary" />
+              <Award className="w-12 h-12 text-technician-primary" />
               <div className="flex-1">
                 <h3 className="text-xl font-bold text-foreground mb-2">Técnico en Ascenso</h3>
                 <p className="text-muted-foreground mb-4">
