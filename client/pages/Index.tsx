@@ -305,23 +305,23 @@ export default function Index() {
       <nav className="fixed bottom-0 left-0 right-0 bg-white border-t border-border">
         <div className="flex items-center justify-around py-2">
           {[
-            { id: "home", icon: Home, label: "Inicio" },
-            { id: "certifications", icon: GraduationCap, label: "Certificaciones" },
-            { id: "services", icon: Wrench, label: "Servicios" },
-            { id: "profile", icon: User, label: "Perfil" }
+            { path: "/", icon: Home, label: "Inicio" },
+            { path: "/certifications", icon: GraduationCap, label: "Certificaciones" },
+            { path: "/services", icon: Wrench, label: "Servicios" },
+            { path: "/profile", icon: User, label: "Perfil" }
           ].map((item) => (
-            <button
-              key={item.id}
-              onClick={() => setActiveTab(item.id)}
+            <Link
+              key={item.path}
+              to={item.path}
               className={`flex flex-col items-center space-y-1 py-2 px-3 rounded-lg transition-colors ${
-                activeTab === item.id
+                location.pathname === item.path
                   ? "text-technician-primary"
                   : "text-muted-foreground"
               }`}
             >
               <item.icon className="w-6 h-6" />
               <span className="text-xs font-medium">{item.label}</span>
-            </button>
+            </Link>
           ))}
         </div>
       </nav>
