@@ -12,32 +12,32 @@
   */
   :root {
     /* FixIt Home Technician Theme */
-    --background: 233 240 242; /* #E9EEF0 */
-    --foreground: 39 38 32; /* #272620 */
+    --background: 203 33% 91%; /* #E9EEF0 */
+    --foreground: 52 8% 15%; /* #272620 */
 
-    --card: 244 247 250; /* #F4F7FA */
-    --card-foreground: 39 38 32; /* #272620 */
+    --card: 218 27% 96%; /* #F4F7FA */
+    --card-foreground: 52 8% 15%; /* #272620 */
 
     --popover: 0 0% 100%;
-    --popover-foreground: 39 38 32;
+    --popover-foreground: 52 8% 15%;
 
     --primary: 25 58% 59%; /* #EA8B49 orange */
     --primary-foreground: 0 0% 100%;
 
     --secondary: 43 67% 73%; /* #F4C880 mustard */
-    --secondary-foreground: 39 38 32;
+    --secondary-foreground: 52 8% 15%;
 
-    --muted: 244 247 250;
-    --muted-foreground: 109 109 105; /* #6D6D69 */
+    --muted: 218 27% 96%;
+    --muted-foreground: 0 0% 42%; /* #6D6D69 */
 
-    --accent: 244 247 250;
-    --accent-foreground: 39 38 32;
+    --accent: 218 27% 96%;
+    --accent-foreground: 52 8% 15%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 205 214 219; /* #B2CBD5 */
-    --input: 249 250 251; /* #F9FAFB */
+    --border: 205 23% 65%; /* #B2CBD5 */
+    --input: 210 20% 98%; /* #F9FAFB */
     --ring: 25 58% 59%;
 
     --radius: 12px; /* More rounded for mobile */
