@@ -75,9 +75,20 @@ export default function Profile() {
             </Link>
             <h1 className="text-xl font-semibold text-foreground">Mi Perfil</h1>
           </div>
-          <button className="p-2 rounded-full hover:bg-gray-100 transition-colors">
-            <Settings className="w-6 h-6 text-muted-foreground" />
-          </button>
+          <div className="flex items-center space-x-2">
+            <button
+              onClick={() => setShowNotifications(true)}
+              className="p-2 rounded-full hover:bg-gray-100 transition-colors relative"
+            >
+              <Bell className="w-6 h-6 text-muted-foreground" />
+              <div className="absolute -top-1 -right-1 w-4 h-4 bg-technician-primary rounded-full flex items-center justify-center">
+                <span className="text-xs text-white font-bold">2</span>
+              </div>
+            </button>
+            <button className="p-2 rounded-full hover:bg-gray-100 transition-colors">
+              <Settings className="w-6 h-6 text-muted-foreground" />
+            </button>
+          </div>
         </div>
       </header>
 
