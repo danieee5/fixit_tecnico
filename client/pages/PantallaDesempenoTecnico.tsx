@@ -1,12 +1,12 @@
 import { useState } from "react";
-import { 
-  ArrowLeft, 
-  DollarSign, 
-  Clock, 
+import {
+  ArrowLeft,
+  DollarSign,
+  Clock,
   Award,
   CheckCircle,
   TrendingUp,
-  ThumbUp,
+  ThumbsUp,
   Zap,
   MapPin,
   Trophy,
