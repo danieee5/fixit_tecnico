@@ -129,7 +129,7 @@ const achievements = [
   {
     title: "Rápido y eficaz",
     description: "Tiempo medio < 2h",
-    icon: Speed,
+    icon: Zap,
     earned: false
   },
   {
@@ -141,13 +141,13 @@ const achievements = [
   {
     title: "Técnico en Ruta",
     description: "Trabaja en 3 parroquias",
-    icon: Map,
+    icon: MapPin,
     earned: true
   },
   {
     title: "Técnico destacado",
     description: "Top 3 mensual",
-    icon: WorkspacePremium,
+    icon: Award,
     earned: true
   }
 ];
