@@ -13,6 +13,7 @@ import Profile from "./pages/Profile";
 import PantallaServicios from "./pages/PantallaServicios";
 import PantallaSolicitudes from "./pages/PantallaSolicitudes";
 import PantallaDesempenoTecnico from "./pages/PantallaDesempenoTecnico";
+import PantallaSolicitudesTecnico from "./pages/PantallaSolicitudesTecnico";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
