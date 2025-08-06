@@ -108,36 +108,6 @@ export default function Profile() {
           </button>
         </div>
 
-        {/* Performance Summary */}
-        <div 
-          className="bg-white p-5 mb-6 shadow-sm"
-          style={{ borderRadius: '20px' }}
-        >
-          <h3 className="text-lg font-semibold text-foreground mb-4">Resumen de actividad</h3>
-          <div className="grid grid-cols-3 gap-4">
-            <div className="text-center">
-              <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-2">
-                <Briefcase className="w-6 h-6 text-green-600" />
-              </div>
-              <p className="text-2xl font-bold text-foreground">{userData.completedServices}</p>
-              <p className="text-xs text-muted-foreground">Servicios completados</p>
-            </div>
-            <div className="text-center">
-              <div className="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-2">
-                <Star className="w-6 h-6 text-yellow-600" />
-              </div>
-              <p className="text-2xl font-bold text-foreground">{userData.averageRating}</p>
-              <p className="text-xs text-muted-foreground">Calificación promedio</p>
-            </div>
-            <div className="text-center">
-              <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-2">
-                <Clock className="w-6 h-6 text-blue-600" />
-              </div>
-              <p className="text-2xl font-bold text-foreground">{userData.responseTime}</p>
-              <p className="text-xs text-muted-foreground">Tiempo respuesta</p>
-            </div>
-          </div>
-        </div>
 
         {/* Quick Access Items */}
         <div 
