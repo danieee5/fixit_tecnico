@@ -291,7 +291,11 @@ export default function NotificationsModal({ isOpen, onClose }: NotificationsMod
               style={{
                 borderRadius: '20px',
                 backdropFilter: 'blur(10px)',
-                border: notification.isUnread ? '1px solid rgba(234, 139, 73, 0.3)' : '1px solid rgba(255, 255, 255, 0.4)'
+                border: notification.type === "certificacion" && notification.isUnread
+                  ? '1px solid rgba(33, 150, 243, 0.4)'
+                  : notification.isUnread
+                    ? '1px solid rgba(234, 139, 73, 0.3)'
+                    : '1px solid rgba(255, 255, 255, 0.4)'
               }}
             >
               {/* Unread indicator */}
