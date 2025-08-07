@@ -195,6 +195,12 @@ export default function PantallaSolicitudesTecnico() {
       </div>
 
       <BottomNavigation />
+
+      {/* Notifications Modal */}
+      <NotificationsModal
+        isOpen={showNotifications}
+        onClose={() => setShowNotifications(false)}
+      />
     </div>
   );
 }
