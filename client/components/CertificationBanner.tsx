@@ -33,8 +33,8 @@ export default function CertificationBanner({ isVisible, onClose }: Certificatio
       />
 
       {/* Banner Modal */}
-      <div 
-        className={`relative w-full max-w-sm transition-all duration-300 ${
+      <div
+        className={`relative w-full max-w-sm mx-4 sm:mx-0 transition-all duration-300 ${
           isOpen ? 'scale-100 opacity-100' : 'scale-95 opacity-0'
         }`}
         style={{
