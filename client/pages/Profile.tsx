@@ -18,6 +18,7 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import BottomNavigation from "../components/BottomNavigation";
 import NotificationsModal from "../components/NotificationsModal";
+import CertificationBanner from "../components/CertificationBanner";
 
 export default function Profile() {
   const [currentRole, setCurrentRole] = useState("tecnico");
