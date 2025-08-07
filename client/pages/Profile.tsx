@@ -11,7 +11,8 @@ import {
   Star,
   Clock,
   TrendingUp,
-  ChevronRight
+  ChevronRight,
+  ShieldCheck
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
