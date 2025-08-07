@@ -34,14 +34,17 @@ export default function Header({
         </div>
 
         {/* Notifications */}
-        <div className="relative">
+        <button
+          className="relative p-2 hover:bg-gray-100 rounded-full transition-colors"
+          onClick={onNotificationClick}
+        >
           <Bell className="w-6 h-6 text-muted-foreground" />
           {notificationCount > 0 && (
             <div className="absolute -top-1 -right-1 w-5 h-5 bg-technician-primary rounded-full flex items-center justify-center">
               <span className="text-xs text-white font-bold">{notificationCount}</span>
             </div>
           )}
-        </div>
+        </button>
       </div>
     </header>
   );
