@@ -19,6 +19,7 @@ import { useState } from "react";
 import BottomNavigation from "../components/BottomNavigation";
 import NotificationsModal from "../components/NotificationsModal";
 import CertificationBanner from "../components/CertificationBanner";
+import useScrollToTop from "../hooks/use-scroll-to-top";
 
 export default function Profile() {
   const [currentRole, setCurrentRole] = useState("tecnico");
