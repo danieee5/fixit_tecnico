@@ -265,6 +265,21 @@ export default function RequestDetail() {
       </div>
 
       <BottomNavigation />
+
+      {/* Accept Request Flow */}
+      <AcceptRequestFlow
+        isOpen={showAcceptFlow}
+        onClose={() => setShowAcceptFlow(false)}
+        request={{
+          id: request.id,
+          title: request.title,
+          client: request.client.name,
+          location: request.location.address,
+          suggestedPrice: request.price.suggested,
+          suggestedDate: request.date,
+          suggestedTime: request.time
+        }}
+      />
     </div>
   );
 }
