@@ -9,7 +9,7 @@ interface HeaderProps {
 
 export default function Header({
   userName = "Usuario",
-  location = "Guayaquil, Ecuador",
+  location = "Centro, Guayaquil",
   notificationCount = 0,
   showProfilePhoto = true
 }: HeaderProps) {
