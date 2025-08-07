@@ -13,6 +13,7 @@ import { Link } from "react-router-dom";
 import Header from "../components/Header";
 import BottomNavigation from "../components/BottomNavigation";
 import NotificationsModal from "../components/NotificationsModal";
+import AcceptRequestFlow from "../components/AcceptRequestFlow";
 import useScrollToTop from "../hooks/use-scroll-to-top";
 
 export default function PantallaSolicitudesTecnico() {
