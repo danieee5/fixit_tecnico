@@ -155,6 +155,9 @@ const achievements = [
 export default function PantallaDesempenoTecnico() {
   const [selectedFilter, setSelectedFilter] = useState("global");
 
+  // Reset scroll to top when navigating to this page
+  useScrollToTop();
+
   const filters = [
     { id: "global", label: "Global" },
     { id: "parroquia", label: "Mi Parroquia" }
