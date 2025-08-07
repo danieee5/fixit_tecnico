@@ -37,6 +37,7 @@ const App = () => (
           <Route path="/solicitudes" element={<PantallaSolicitudes />} />
           <Route path="/mi-desempeno" element={<PantallaDesempenoTecnico />} />
           <Route path="/solicitudes-tecnico" element={<PantallaSolicitudesTecnico />} />
+          <Route path="/solicitud/:id" element={<RequestDetail />} />
           <Route path="/notifications-demo" element={<NotificationsDemo />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
