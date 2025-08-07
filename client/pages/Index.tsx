@@ -105,8 +105,9 @@ export default function Index() {
       {/* Shared Header */}
       <Header
         userName="Carlos"
-        location="Guayaquil, Ecuador"
+        location="Centro, Guayaquil"
         notificationCount={3}
+        onNotificationClick={() => setShowNotifications(true)}
       />
 
       {/* Warm Greeting Section */}
