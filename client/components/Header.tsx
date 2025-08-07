@@ -12,7 +12,8 @@ export default function Header({
   userName = "Usuario",
   location = "Centro, Guayaquil",
   notificationCount = 0,
-  showProfilePhoto = true
+  showProfilePhoto = true,
+  onNotificationClick
 }: HeaderProps) {
   return (
     <header className="bg-white/95 backdrop-blur-md border-b border-border px-4 py-4 sticky top-0 z-50">
