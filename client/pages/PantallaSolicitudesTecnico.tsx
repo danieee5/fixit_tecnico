@@ -17,6 +17,7 @@ import NotificationsModal from "../components/NotificationsModal";
 export default function PantallaSolicitudesTecnico() {
   const [activeTab, setActiveTab] = useState("disponibles");
   const [searchQuery, setSearchQuery] = useState("");
+  const [showNotifications, setShowNotifications] = useState(false);
 
   const tabs = [
     { id: "disponibles", label: "Disponibles", count: 3 },
