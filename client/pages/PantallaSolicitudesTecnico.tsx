@@ -26,6 +26,19 @@ export default function PantallaSolicitudesTecnico() {
   // Reset scroll to top when navigating to this page
   useScrollToTop();
 
+  const handleAcceptRequest = (request) => {
+    setSelectedRequest({
+      id: request.id,
+      title: request.title,
+      client: request.client,
+      location: request.location,
+      suggestedPrice: request.price,
+      suggestedDate: request.date,
+      suggestedTime: request.time
+    });
+    setShowAcceptFlow(true);
+  };
+
   const tabs = [
     { id: "disponibles", label: "Disponibles", count: 3 },
     { id: "enProgreso", label: "En Progreso", count: 2 },
