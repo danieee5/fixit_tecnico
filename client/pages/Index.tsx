@@ -1,11 +1,11 @@
 import { useState } from "react";
-import { 
-  Bell, 
-  Search, 
-  Filter, 
-  Star, 
-  Clock, 
-  MapPin, 
+import {
+  Bell,
+  Search,
+  Filter,
+  Star,
+  Clock,
+  MapPin,
   GraduationCap,
   Gift,
   Award,
@@ -20,6 +20,7 @@ import { Link } from "react-router-dom";
 import Header from "../components/Header";
 import BottomNavigation from "../components/BottomNavigation";
 import NotificationsModal from "../components/NotificationsModal";
+import useScrollToTop from "../hooks/use-scroll-to-top";
 
 // Dummy data for search functionality
 const coursesData = [
