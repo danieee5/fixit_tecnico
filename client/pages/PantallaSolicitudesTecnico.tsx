@@ -20,6 +20,8 @@ export default function PantallaSolicitudesTecnico() {
   const [activeTab, setActiveTab] = useState("disponibles");
   const [searchQuery, setSearchQuery] = useState("");
   const [showNotifications, setShowNotifications] = useState(false);
+  const [showAcceptFlow, setShowAcceptFlow] = useState(false);
+  const [selectedRequest, setSelectedRequest] = useState(null);
 
   // Reset scroll to top when navigating to this page
   useScrollToTop();
