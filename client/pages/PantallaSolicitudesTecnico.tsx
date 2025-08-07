@@ -224,6 +224,18 @@ export default function PantallaSolicitudesTecnico() {
         isOpen={showNotifications}
         onClose={() => setShowNotifications(false)}
       />
+
+      {/* Accept Request Flow */}
+      {selectedRequest && (
+        <AcceptRequestFlow
+          isOpen={showAcceptFlow}
+          onClose={() => {
+            setShowAcceptFlow(false);
+            setSelectedRequest(null);
+          }}
+          request={selectedRequest}
+        />
+      )}
     </div>
   );
 }
