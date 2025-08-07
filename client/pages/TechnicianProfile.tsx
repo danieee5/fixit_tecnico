@@ -18,6 +18,7 @@ import { Link } from "react-router-dom";
 import BottomNavigation from "../components/BottomNavigation";
 import NotificationsModal from "../components/NotificationsModal";
 import CertificationBanner from "../components/CertificationBanner";
+import useScrollToTop from "../hooks/use-scroll-to-top";
 
 interface TechnicianProfileProps {
   isVerified?: boolean;
