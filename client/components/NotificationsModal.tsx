@@ -155,7 +155,13 @@ export default function NotificationsModal({ isOpen, onClose }: NotificationsMod
 
   const handleNotificationClick = (notification: any) => {
     // In a real app, this would navigate to the appropriate page
-    console.log("Navigating to:", notification.requestId);
+    if (notification.redirectTo) {
+      console.log("Navigating to:", notification.redirectTo);
+      // Navigate to profile or specific page
+      window.location.href = notification.redirectTo;
+    } else {
+      console.log("Navigating to:", notification.requestId);
+    }
     onClose();
   };
 
