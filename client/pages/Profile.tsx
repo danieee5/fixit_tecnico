@@ -23,6 +23,7 @@ import CertificationBanner from "../components/CertificationBanner";
 export default function Profile() {
   const [currentRole, setCurrentRole] = useState("tecnico");
   const [showNotifications, setShowNotifications] = useState(false);
+  const [showBanner, setShowBanner] = useState(false); // Set to true to test the banner
 
   // User data (in a real app, this would come from a context or API)
   const userData = {
