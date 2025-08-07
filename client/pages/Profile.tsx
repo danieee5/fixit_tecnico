@@ -26,6 +26,9 @@ export default function Profile() {
   const [showNotifications, setShowNotifications] = useState(false);
   const [showBanner, setShowBanner] = useState(false); // Set to true to test the banner
 
+  // Reset scroll to top when navigating to this page
+  useScrollToTop();
+
   // User data (in a real app, this would come from a context or API)
   const userData = {
     name: "Carlos Mendoza",
