@@ -25,12 +25,15 @@ interface TechnicianProfileProps {
   showVerificationBanner?: boolean;
 }
 
-export default function TechnicianProfile({ 
-  isVerified = true, 
-  showVerificationBanner = true 
+export default function TechnicianProfile({
+  isVerified = true,
+  showVerificationBanner = true
 }: TechnicianProfileProps) {
   const [showNotifications, setShowNotifications] = useState(false);
   const [showBanner, setShowBanner] = useState(showVerificationBanner);
+
+  // Reset scroll to top when navigating to this page
+  useScrollToTop();
 
   // User data (in a real app, this would come from a context or API)
   const userData = {
