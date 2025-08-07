@@ -197,7 +197,10 @@ export default function PantallaSolicitudesTecnico() {
 
               {/* Actions */}
               <div className="flex items-center space-x-3">
-                <button className="flex-1 btn-primary py-2">
+                <button
+                  onClick={() => handleAcceptRequest(request)}
+                  className="flex-1 btn-primary py-2"
+                >
                   Aceptar solicitud
                 </button>
                 <Link
