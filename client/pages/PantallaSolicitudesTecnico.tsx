@@ -57,10 +57,11 @@ export default function PantallaSolicitudesTecnico() {
   return (
     <div className="min-h-screen bg-background font-inter">
       {/* Shared Header */}
-      <Header 
+      <Header
         userName="Carlos"
-        location="Centro, Caracas" 
+        location="Centro, Guayaquil"
         notificationCount={2}
+        onNotificationClick={() => setShowNotifications(true)}
       />
 
       {/* Search Bar */}
