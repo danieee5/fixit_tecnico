@@ -81,6 +81,9 @@ const servicesData = [
 
 export default function PantallaServicios() {
   const [selectedFilter, setSelectedFilter] = useState("todos");
+
+  // Reset scroll to top when navigating to this page
+  useScrollToTop();
   const [searchQuery, setSearchQuery] = useState("");
 
   const filters = [
