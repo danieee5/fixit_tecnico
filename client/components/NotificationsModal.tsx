@@ -256,6 +256,18 @@ export default function NotificationsModal({ isOpen, onClose }: NotificationsMod
             >
               Recordatorios
             </button>
+
+            <button
+              onClick={() => setFilterType("certificacion")}
+              className={`px-3 py-2 font-medium text-sm whitespace-nowrap transition-colors ${
+                filterType === "certificacion"
+                  ? "bg-technician-primary text-white"
+                  : "bg-white/50 text-muted-foreground"
+              }`}
+              style={{borderRadius: '20px'}}
+            >
+              Certificación
+            </button>
           </div>
         </div>
 
