@@ -54,7 +54,7 @@ export default function CertificationBanner({ isVisible, onClose }: Certificatio
         </button>
 
         {/* Content */}
-        <div className="p-8 text-center">
+        <div className="p-6 sm:p-8 text-center">
           {/* Celebration Icon */}
           <div className="text-6xl mb-4">🎉</div>
           
