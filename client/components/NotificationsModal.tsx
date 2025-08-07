@@ -20,6 +20,20 @@ interface NotificationsModalProps {
 // Notification types for technicians
 const notificationsData = [
   {
+    id: "0",
+    type: "certificacion",
+    title: "¡Felicidades! Has sido certificado",
+    description: "Tu perfil ahora cuenta con el distintivo de técnico verificado.",
+    time: "Hoy, 11:30 AM",
+    icon: ShieldCheck,
+    iconColor: "text-blue-600",
+    iconBg: "bg-blue-100",
+    isUnread: true,
+    action: "Ver",
+    requestId: "CERT-001",
+    redirectTo: "/perfil-tecnico"
+  },
+  {
     id: "1",
     type: "nueva_solicitud",
     title: "Nueva solicitud en tu zona",
