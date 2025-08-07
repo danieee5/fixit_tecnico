@@ -9,9 +9,9 @@ export default function NotificationsDemo() {
 
   return (
     <div className="min-h-screen bg-background font-inter">
-      <Header 
+      <Header
         userName="Carlos"
-        location="Centro, Caracas" 
+        location="Centro, Guayaquil"
         notificationCount={2}
       />
 
