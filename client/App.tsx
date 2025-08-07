@@ -15,6 +15,7 @@ import PantallaServicios from "./pages/PantallaServicios";
 import PantallaSolicitudes from "./pages/PantallaSolicitudes";
 import PantallaDesempenoTecnico from "./pages/PantallaDesempenoTecnico";
 import PantallaSolicitudesTecnico from "./pages/PantallaSolicitudesTecnico";
+import RequestDetail from "./pages/RequestDetail";
 import NotificationsDemo from "./pages/NotificationsDemo";
 import NotFound from "./pages/NotFound";
 
