@@ -384,6 +384,12 @@ export default function Index() {
       </div>
 
       <BottomNavigation />
+
+      {/* Notifications Modal */}
+      <NotificationsModal
+        isOpen={showNotifications}
+        onClose={() => setShowNotifications(false)}
+      />
     </div>
   );
 }
