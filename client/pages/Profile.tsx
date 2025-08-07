@@ -209,6 +209,12 @@ export default function Profile() {
         isOpen={showNotifications}
         onClose={() => setShowNotifications(false)}
       />
+
+      {/* Certification Banner */}
+      <CertificationBanner
+        isVisible={showBanner && userData.isVerified}
+        onClose={handleBannerClose}
+      />
     </div>
   );
 }
