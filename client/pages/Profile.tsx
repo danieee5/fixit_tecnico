@@ -31,7 +31,8 @@ export default function Profile() {
     completedServices: 156,
     averageRating: 4.8,
     responseTime: "15 min",
-    joinDate: "Enero 2023"
+    joinDate: "Enero 2023",
+    isVerified: true
   };
 
   const quickAccessItems = [
