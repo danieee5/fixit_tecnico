@@ -2,6 +2,7 @@ import { useState } from "react";
 import { ArrowLeft, Zap, Wrench, Settings, Hammer, Filter, Search, Clock, MapPin, CheckCircle } from "lucide-react";
 import { Link } from "react-router-dom";
 import BottomNavigation from "../components/BottomNavigation";
+import useScrollToTop from "../hooks/use-scroll-to-top";
 
 const servicesData = [
   {
