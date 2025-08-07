@@ -9,8 +9,10 @@ import {
   MapPin,
   Zap
 } from "lucide-react";
+import { Link } from "react-router-dom";
 import Header from "../components/Header";
 import BottomNavigation from "../components/BottomNavigation";
+import NotificationsModal from "../components/NotificationsModal";
 
 export default function PantallaSolicitudesTecnico() {
   const [activeTab, setActiveTab] = useState("disponibles");
