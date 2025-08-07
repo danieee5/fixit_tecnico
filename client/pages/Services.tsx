@@ -1,6 +1,7 @@
 import { Wrench, ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
 import BottomNavigation from "../components/BottomNavigation";
+import useScrollToTop from "../hooks/use-scroll-to-top";
 
 export default function Services() {
   return (
