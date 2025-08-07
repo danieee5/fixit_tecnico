@@ -10,6 +10,7 @@ import Index from "./pages/Index";
 import Certifications from "./pages/Certifications";
 import Services from "./pages/Services";
 import Profile from "./pages/Profile";
+import TechnicianProfile from "./pages/TechnicianProfile";
 import PantallaServicios from "./pages/PantallaServicios";
 import PantallaSolicitudes from "./pages/PantallaSolicitudes";
 import PantallaDesempenoTecnico from "./pages/PantallaDesempenoTecnico";
