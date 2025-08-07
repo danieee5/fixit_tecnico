@@ -8,7 +8,8 @@ import {
   MessageCircle,
   Star,
   Filter,
-  Bell
+  Bell,
+  ShieldCheck
 } from "lucide-react";
 
 interface NotificationsModalProps {
