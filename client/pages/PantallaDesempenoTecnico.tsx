@@ -14,6 +14,7 @@ import {
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import BottomNavigation from "../components/BottomNavigation";
+import useScrollToTop from "../hooks/use-scroll-to-top";
 
 // Dummy data for the performance dashboard
 const monthlyMetrics = {
