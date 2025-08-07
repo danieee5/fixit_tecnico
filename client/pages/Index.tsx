@@ -19,6 +19,7 @@ import {
 import { Link } from "react-router-dom";
 import Header from "../components/Header";
 import BottomNavigation from "../components/BottomNavigation";
+import NotificationsModal from "../components/NotificationsModal";
 
 // Dummy data for search functionality
 const coursesData = [
