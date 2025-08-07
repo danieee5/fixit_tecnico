@@ -77,6 +77,7 @@ const coursesData = [
 export default function Index() {
   const [searchQuery, setSearchQuery] = useState("");
   const [filteredCourses, setFilteredCourses] = useState(coursesData);
+  const [showNotifications, setShowNotifications] = useState(false);
 
   const handleSearch = (query: string) => {
     setSearchQuery(query);
