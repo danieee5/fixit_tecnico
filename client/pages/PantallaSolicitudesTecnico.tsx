@@ -180,10 +180,14 @@ export default function PantallaSolicitudesTecnico() {
                 <button className="flex-1 btn-primary py-2">
                   Aceptar solicitud
                 </button>
-                <button className="px-4 py-2 border border-technician-primary text-technician-primary font-medium text-sm flex items-center space-x-1" style={{borderRadius: '20px'}}>
+                <Link
+                  to={`/solicitud/${request.id}`}
+                  className="px-4 py-2 border border-technician-primary text-technician-primary font-medium text-sm flex items-center space-x-1"
+                  style={{borderRadius: '20px'}}
+                >
                   <Eye className="w-4 h-4" />
                   <span>Ver detalles</span>
-                </button>
+                </Link>
               </div>
             </div>
           ))}
