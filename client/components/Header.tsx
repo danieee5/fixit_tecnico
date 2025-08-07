@@ -5,6 +5,7 @@ interface HeaderProps {
   location?: string;
   notificationCount?: number;
   showProfilePhoto?: boolean;
+  onNotificationClick?: () => void;
 }
 
 export default function Header({
