@@ -80,6 +80,9 @@ export default function Index() {
   const [filteredCourses, setFilteredCourses] = useState(coursesData);
   const [showNotifications, setShowNotifications] = useState(false);
 
+  // Reset scroll to top when navigating to this page
+  useScrollToTop();
+
   const handleSearch = (query: string) => {
     setSearchQuery(query);
     if (query.trim() === "") {
