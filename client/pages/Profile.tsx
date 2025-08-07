@@ -37,6 +37,12 @@ export default function Profile() {
     isVerified: true
   };
 
+  const handleBannerClose = () => {
+    setShowBanner(false);
+    // In a real app, you would also update the backend to mark banner as seen
+    localStorage.setItem('certificationBannerSeen', 'true');
+  };
+
   const quickAccessItems = [
     {
       id: "history",
