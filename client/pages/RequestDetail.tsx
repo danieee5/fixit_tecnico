@@ -14,6 +14,7 @@ import {
 } from "lucide-react";
 import { Link, useParams } from "react-router-dom";
 import BottomNavigation from "../components/BottomNavigation";
+import AcceptRequestFlow from "../components/AcceptRequestFlow";
 
 // Sample request data - in real app this would come from API
 const getRequestById = (id: string) => {
