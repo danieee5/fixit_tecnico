@@ -4,6 +4,9 @@ import BottomNavigation from "../components/BottomNavigation";
 import useScrollToTop from "../hooks/use-scroll-to-top";
 
 export default function Services() {
+  // Reset scroll to top when navigating to this page
+  useScrollToTop();
+
   return (
     <div className="min-h-screen bg-background font-inter">
       {/* Header */}
