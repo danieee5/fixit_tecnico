@@ -1,50 +1,13 @@
-import "./global.css";
+import React from "react";
+import { SafeAreaProvider } from "react-native-safe-area-context";
+import { StatusBar } from "expo-status-bar";
+import { RootNavigator } from "./navigation/RootNavigator";
 
-import { Toaster } from "@/components/ui/toaster";
-import { createRoot } from "react-dom/client";
-import { Toaster as Sonner } from "@/components/ui/sonner";
-import { TooltipProvider } from "@/components/ui/tooltip";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Index from "./pages/Index";
-import Certifications from "./pages/Certifications";
-import Services from "./pages/Services";
-import Profile from "./pages/Profile";
-import TechnicianProfile from "./pages/TechnicianProfile";
-import PantallaServicios from "./pages/PantallaServicios";
-import PantallaSolicitudes from "./pages/PantallaSolicitudes";
-import PantallaDesempenoTecnico from "./pages/PantallaDesempenoTecnico";
-import PantallaSolicitudesTecnico from "./pages/PantallaSolicitudesTecnico";
-import RequestDetail from "./pages/RequestDetail";
-import NotificationsDemo from "./pages/NotificationsDemo";
-import NotFound from "./pages/NotFound";
-
-const queryClient = new QueryClient();
-
-const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/certifications" element={<Certifications />} />
-          <Route path="/services" element={<Services />} />
-          <Route path="/profile" element={<Profile />} />
-          <Route path="/perfil-tecnico" element={<TechnicianProfile />} />
-          <Route path="/mis-servicios" element={<PantallaServicios />} />
-          <Route path="/solicitudes" element={<PantallaSolicitudes />} />
-          <Route path="/mi-desempeno" element={<PantallaDesempenoTecnico />} />
-          <Route path="/solicitudes-tecnico" element={<PantallaSolicitudesTecnico />} />
-          <Route path="/solicitud/:id" element={<RequestDetail />} />
-          <Route path="/notifications-demo" element={<NotificationsDemo />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
-    </TooltipProvider>
-  </QueryClientProvider>
-);
-
-createRoot(document.getElementById("root")!).render(<App />);
+export default function App() {
+  return (
+    <SafeAreaProvider>
+      <RootNavigator />
+      <StatusBar barStyle="dark-content" backgroundColor="#FFFFFF" />
+    </SafeAreaProvider>
+  );
+}
