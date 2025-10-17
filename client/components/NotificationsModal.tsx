@@ -1,364 +1,281 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import {
-  X,
-  MapPin,
-  CheckCircle,
-  Camera,
-  Clock,
-  MessageCircle,
-  Star,
-  Filter,
-  Bell,
-  ShieldCheck
-} from "lucide-react";
+  View,
+  Text,
+  StyleSheet,
+  TouchableOpacity,
+  Modal,
+  FlatList,
+  Dimensions
+} from "react-native";
+import { colors } from "../theme/colors";
+
+interface Notification {
+  id: string;
+  type: string;
+  title: string;
+  description: string;
+  time: string;
+  isUnread: boolean;
+  icon?: string;
+  action?: string;
+  requestId?: string;
+  redirectTo?: string;
+}
 
 interface NotificationsModalProps {
   isOpen: boolean;
   onClose: () => void;
 }
 
-// Notification types for technicians
-const notificationsData = [
+const defaultNotifications: Notification[] = [
   {
     id: "0",
     type: "certificacion",
     title: "¡Felicidades! Has sido certificado",
     description: "Tu perfil ahora cuenta con el distintivo de técnico verificado.",
     time: "Hoy, 11:30 AM",
-    icon: ShieldCheck,
-    iconColor: "text-blue-600",
-    iconBg: "bg-blue-100",
     isUnread: true,
+    icon: "🎓",
     action: "Ver",
     requestId: "CERT-001",
     redirectTo: "/perfil-tecnico"
   },
   {
     id: "1",
-    type: "nueva_solicitud",
-    title: "Nueva solicitud en tu zona",
-    description: "Nueva solicitud disponible cerca de ti en categoría Plomería",
-    time: "Hoy, 10:12 AM",
-    icon: MapPin,
-    iconColor: "text-technician-primary",
-    iconBg: "bg-orange-100",
+    type: "request",
+    title: "Nueva solicitud disponible",
+    description: "Se ha publicado una nueva solicitud en tu área de cobertura",
+    time: "Hoy, 10:15 AM",
     isUnread: true,
-    action: "Ver",
-    requestId: "REQ-123456"
+    icon: "📋",
+    action: "Ver"
   },
   {
     id: "2",
-    type: "solicitud_aceptada",
-    title: "Solicitud aceptada",
-    description: "Has aceptado la solicitud #123456. Contacta al cliente.",
-    time: "Hoy, 9:45 AM",
-    icon: CheckCircle,
-    iconColor: "text-green-600",
-    iconBg: "bg-green-100",
-    isUnread: true,
-    action: "Ir",
-    requestId: "REQ-123456"
-  },
-  {
-    id: "3",
-    type: "nuevas_fotos",
-    title: "Cliente subió nuevas fotos",
-    description: "La solicitud #123456 ha sido actualizada con nuevas imágenes.",
-    time: "Hoy, 8:30 AM",
-    icon: Camera,
-    iconColor: "text-purple-600",
-    iconBg: "bg-purple-100",
+    type: "message",
+    title: "María González dejó un comentario",
+    description: "Excelente trabajo en mi reparación del aire acondicionado",
+    time: "Hoy, 8:45 AM",
     isUnread: false,
-    action: "Ver",
-    requestId: "REQ-123456"
-  },
-  {
-    id: "4",
-    type: "recordatorio",
-    title: "Recordatorio de servicio",
-    description: "Tienes una solicitud pendiente para hoy a las 3:00 PM.",
-    time: "Hoy, 8:00 AM",
-    icon: Clock,
-    iconColor: "text-blue-600",
-    iconBg: "bg-blue-100",
-    isUnread: false,
-    action: "Ver",
-    requestId: "REQ-789012"
-  },
-  {
-    id: "5",
-    type: "mensaje_cliente",
-    title: "Nuevo mensaje del cliente",
-    description: "Juan Pérez te ha enviado un mensaje en la solicitud #123456.",
-    time: "Ayer, 6:20 PM",
-    icon: MessageCircle,
-    iconColor: "text-indigo-600",
-    iconBg: "bg-indigo-100",
-    isUnread: false,
-    action: "Ver",
-    requestId: "REQ-123456"
-  },
-  {
-    id: "6",
-    type: "calificacion",
-    title: "Recibiste una calificación",
-    description: "Tu servicio fue calificado con 5 estrellas por María R.",
-    time: "Ayer, 4:15 PM",
-    icon: Star,
-    iconColor: "text-yellow-600",
-    iconBg: "bg-yellow-100",
-    isUnread: false,
-    action: "Ver",
-    requestId: "REQ-654321"
-  },
-  {
-    id: "7",
-    type: "nueva_solicitud",
-    title: "Nueva solicitud en tu zona",
-    description: "Nueva solicitud disponible cerca de ti en categoría Electricidad",
-    time: "Ayer, 2:30 PM",
-    icon: MapPin,
-    iconColor: "text-technician-primary",
-    iconBg: "bg-orange-100",
-    isUnread: false,
-    action: "Ver",
-    requestId: "REQ-789013"
-  },
-  {
-    id: "8",
-    type: "recordatorio",
-    title: "Recordatorio de servicio",
-    description: "No olvides confirmar tu cita de mañana a las 10:00 AM.",
-    time: "Ayer, 1:00 PM",
-    icon: Clock,
-    iconColor: "text-blue-600",
-    iconBg: "bg-blue-100",
-    isUnread: false,
-    action: "Ver",
-    requestId: "REQ-456789"
+    icon: "💬"
   }
 ];
 
-export default function NotificationsModal({ isOpen, onClose }: NotificationsModalProps) {
-  const [filterType, setFilterType] = useState<string>("all");
+export default function NotificationsModal({
+  isOpen,
+  onClose
+}: NotificationsModalProps) {
+  const [notifications, setNotifications] = useState(defaultNotifications);
 
-  const unreadCount = notificationsData.filter(n => n.isUnread).length;
-
-  const filteredNotifications = filterType === "all" 
-    ? notificationsData 
-    : notificationsData.filter(n => n.type === filterType);
-
-  const markAllAsRead = () => {
-    // In a real app, this would update the state/API
-    console.log("Marking all notifications as read");
+  const handleMarkAsRead = (id: string) => {
+    setNotifications(
+      notifications.map(notif =>
+        notif.id === id ? { ...notif, isUnread: false } : notif
+      )
+    );
   };
 
-  const handleNotificationClick = (notification: any) => {
-    // In a real app, this would navigate to the appropriate page
-    if (notification.redirectTo) {
-      console.log("Navigating to:", notification.redirectTo);
-      // Navigate to profile or specific page
-      window.location.href = notification.redirectTo;
-    } else {
-      console.log("Navigating to:", notification.requestId);
-    }
-    onClose();
+  const handleAction = (notification: Notification) => {
+    handleMarkAsRead(notification.id);
+    // In a real app, navigate based on redirectTo or handle the action
   };
 
-  if (!isOpen) return null;
+  const renderNotification = ({ item }: { item: Notification }) => (
+    <TouchableOpacity
+      onPress={() => handleAction(item)}
+      style={[
+        styles.notificationItem,
+        item.isUnread && { backgroundColor: colors.borderLight }
+      ]}
+    >
+      <View style={styles.iconContainer}>
+        <Text style={styles.icon}>{item.icon || "🔔"}</Text>
+      </View>
+      <View style={styles.contentContainer}>
+        <Text style={styles.title}>{item.title}</Text>
+        <Text style={styles.description} numberOfLines={2}>
+          {item.description}
+        </Text>
+        <Text style={styles.time}>{item.time}</Text>
+      </View>
+      {item.isUnread && <View style={styles.unreadDot} />}
+    </TouchableOpacity>
+  );
 
   return (
-    <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center">
-      {/* Backdrop */}
-      <div 
-        className="absolute inset-0 bg-black/40 backdrop-blur-sm"
-        onClick={onClose}
-      ></div>
+    <Modal
+      visible={isOpen}
+      animationType="slide"
+      transparent={true}
+      onRequestClose={onClose}
+    >
+      <View style={styles.overlay}>
+        <View style={styles.modalContent}>
+          {/* Header */}
+          <View style={styles.header}>
+            <Text style={styles.headerTitle}>Notificaciones</Text>
+            <TouchableOpacity onPress={onClose}>
+              <Text style={styles.closeButton}>✕</Text>
+            </TouchableOpacity>
+          </View>
 
-      {/* Modal Container */}
-      <div 
-        className="relative w-full max-w-md mx-4 max-h-[80vh] flex flex-col"
-        style={{
-          background: 'rgba(255, 255, 255, 0.95)',
-          backdropFilter: 'blur(20px)',
-          borderRadius: '20px',
-          border: '1px solid rgba(255, 255, 255, 0.3)',
-          boxShadow: '0 20px 40px rgba(0, 0, 0, 0.15)'
-        }}
-      >
-        {/* Header */}
-        <div className="flex items-center justify-between p-5 border-b border-white/20">
-          <button 
-            onClick={onClose}
-            className="p-2 hover:bg-white/20 rounded-full transition-colors"
-          >
-            <X className="w-6 h-6 text-foreground" />
-          </button>
-          
-          <h2 className="text-xl font-semibold text-foreground">Notificaciones</h2>
-          
-          <button 
-            onClick={markAllAsRead}
-            className="text-sm text-technician-primary font-medium hover:text-orange-600 transition-colors"
-          >
-            Marcar todas
-          </button>
-        </div>
-
-        {/* Filter Options */}
-        <div className="px-5 py-3 border-b border-white/20">
-          <div className="flex items-center space-x-2 overflow-x-auto">
-            <button
-              onClick={() => setFilterType("all")}
-              className={`flex items-center space-x-2 px-3 py-2 font-medium text-sm whitespace-nowrap transition-colors ${
-                filterType === "all"
-                  ? "bg-technician-primary text-white"
-                  : "bg-white/50 text-muted-foreground"
-              }`}
-              style={{borderRadius: '20px'}}
-            >
-              <span>Todas</span>
-              <span className={`px-2 py-1 text-xs rounded-full ${
-                filterType === "all"
-                  ? "bg-white/20 text-white"
-                  : "bg-gray-100 text-gray-600"
-              }`}>
-                {notificationsData.length}
-              </span>
-            </button>
-            
-            <button
-              onClick={() => setFilterType("nueva_solicitud")}
-              className={`px-3 py-2 font-medium text-sm whitespace-nowrap transition-colors ${
-                filterType === "nueva_solicitud"
-                  ? "bg-technician-primary text-white"
-                  : "bg-white/50 text-muted-foreground"
-              }`}
-              style={{borderRadius: '20px'}}
-            >
-              Solicitudes
-            </button>
-            
-            <button
-              onClick={() => setFilterType("mensaje_cliente")}
-              className={`px-3 py-2 font-medium text-sm whitespace-nowrap transition-colors ${
-                filterType === "mensaje_cliente"
-                  ? "bg-technician-primary text-white"
-                  : "bg-white/50 text-muted-foreground"
-              }`}
-              style={{borderRadius: '20px'}}
-            >
-              Mensajes
-            </button>
-            
-            <button
-              onClick={() => setFilterType("recordatorio")}
-              className={`px-3 py-2 font-medium text-sm whitespace-nowrap transition-colors ${
-                filterType === "recordatorio"
-                  ? "bg-technician-primary text-white"
-                  : "bg-white/50 text-muted-foreground"
-              }`}
-              style={{borderRadius: '20px'}}
-            >
-              Recordatorios
-            </button>
-
-            <button
-              onClick={() => setFilterType("certificacion")}
-              className={`px-3 py-2 font-medium text-sm whitespace-nowrap transition-colors ${
-                filterType === "certificacion"
-                  ? "bg-technician-primary text-white"
-                  : "bg-white/50 text-muted-foreground"
-              }`}
-              style={{borderRadius: '20px'}}
-            >
-              Certificación
-            </button>
-          </div>
-        </div>
-
-        {/* Notifications List */}
-        <div className="flex-1 overflow-y-auto p-5 space-y-4">
-          {filteredNotifications.map((notification) => (
-            <div
-              key={notification.id}
-              onClick={() => handleNotificationClick(notification)}
-              className={`relative p-4 cursor-pointer transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] ${
-                notification.isUnread 
-                  ? 'bg-white/80 shadow-lg' 
-                  : 'bg-white/60 shadow-sm'
-              }`}
-              style={{
-                borderRadius: '20px',
-                backdropFilter: 'blur(10px)',
-                border: notification.type === "certificacion" && notification.isUnread
-                  ? '1px solid rgba(33, 150, 243, 0.4)'
-                  : notification.isUnread
-                    ? '1px solid rgba(234, 139, 73, 0.3)'
-                    : '1px solid rgba(255, 255, 255, 0.4)'
-              }}
-            >
-              {/* Unread indicator */}
-              {notification.isUnread && (
-                <div className="absolute top-3 right-3 w-3 h-3 bg-technician-primary rounded-full"></div>
-              )}
-
-              <div className="flex items-start space-x-4">
-                {/* Icon */}
-                <div className={`w-12 h-12 ${notification.iconBg} rounded-full flex items-center justify-center`}>
-                  <notification.icon className={`w-6 h-6 ${notification.iconColor}`} />
-                </div>
-
-                {/* Content */}
-                <div className="flex-1 min-w-0">
-                  <h4 className="font-semibold text-foreground text-sm mb-1">
-                    {notification.title}
-                  </h4>
-                  <p className="text-sm text-muted-foreground mb-2 line-clamp-2">
-                    {notification.description}
-                  </p>
-                  <p className="text-xs text-muted-foreground">
-                    {notification.time}
-                  </p>
-                </div>
-
-                {/* Action Button */}
-                <button 
-                  className="px-3 py-1 bg-technician-primary text-white text-xs font-medium hover:bg-orange-600 transition-colors"
-                  style={{borderRadius: '12px'}}
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    handleNotificationClick(notification);
-                  }}
-                >
-                  {notification.action}
-                </button>
-              </div>
-            </div>
-          ))}
-
-          {filteredNotifications.length === 0 && (
-            <div className="text-center py-8">
-              <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Bell className="w-8 h-8 text-gray-400" />
-              </div>
-              <h3 className="text-lg font-semibold text-foreground mb-2">No hay notificaciones</h3>
-              <p className="text-muted-foreground">
-                No tienes notificaciones en esta categoría.
-              </p>
-            </div>
+          {/* Notifications List */}
+          {notifications.length > 0 ? (
+            <FlatList
+              data={notifications}
+              renderItem={renderNotification}
+              keyExtractor={(item) => item.id}
+              scrollEnabled={true}
+              ItemSeparatorComponent={() => <View style={{ height: 1 }} />}
+              contentContainerStyle={styles.listContent}
+            />
+          ) : (
+            <View style={styles.emptyState}>
+              <Text style={styles.emptyIcon}>🔕</Text>
+              <Text style={styles.emptyText}>No tienes notificaciones</Text>
+              <Text style={styles.emptySubtext}>
+                Volveremos aquí cuando tengas nuevas actualizaciones
+              </Text>
+            </View>
           )}
-        </div>
 
-        {/* Footer */}
-        {unreadCount > 0 && (
-          <div className="p-4 border-t border-white/20">
-            <p className="text-center text-sm text-muted-foreground">
-              Tienes <span className="font-semibold text-technician-primary">{unreadCount}</span> notificaciones sin leer
-            </p>
-          </div>
-        )}
-      </div>
-    </div>
+          {/* Mark all as read button */}
+          {notifications.some(n => n.isUnread) && (
+            <TouchableOpacity
+              style={styles.markAllButton}
+              onPress={() =>
+                setNotifications(
+                  notifications.map(notif => ({
+                    ...notif,
+                    isUnread: false
+                  }))
+                )
+              }
+            >
+              <Text style={styles.markAllText}>Marcar todo como leído</Text>
+            </TouchableOpacity>
+          )}
+        </View>
+      </View>
+    </Modal>
   );
 }
+
+const windowHeight = Dimensions.get("window").height;
+
+const styles = StyleSheet.create({
+  overlay: {
+    flex: 1,
+    backgroundColor: "rgba(0, 0, 0, 0.5)",
+    justifyContent: "flex-end"
+  },
+  modalContent: {
+    backgroundColor: colors.background,
+    borderTopLeftRadius: 24,
+    borderTopRightRadius: 24,
+    maxHeight: windowHeight * 0.9,
+    paddingBottom: 20
+  },
+  header: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    paddingHorizontal: 20,
+    paddingVertical: 16,
+    borderBottomWidth: 1,
+    borderBottomColor: colors.border
+  },
+  headerTitle: {
+    fontSize: 20,
+    fontWeight: "700",
+    color: colors.text.primary
+  },
+  closeButton: {
+    fontSize: 24,
+    color: colors.text.tertiary
+  },
+  listContent: {
+    paddingHorizontal: 0
+  },
+  notificationItem: {
+    flexDirection: "row",
+    alignItems: "flex-start",
+    paddingHorizontal: 16,
+    paddingVertical: 12,
+    gap: 12
+  },
+  iconContainer: {
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+    backgroundColor: colors.surface,
+    justifyContent: "center",
+    alignItems: "center",
+    flexShrink: 0
+  },
+  icon: {
+    fontSize: 20
+  },
+  contentContainer: {
+    flex: 1
+  },
+  title: {
+    fontSize: 14,
+    fontWeight: "600",
+    color: colors.text.primary,
+    marginBottom: 4
+  },
+  description: {
+    fontSize: 12,
+    color: colors.text.secondary,
+    marginBottom: 4,
+    lineHeight: 16
+  },
+  time: {
+    fontSize: 11,
+    color: colors.text.tertiary
+  },
+  unreadDot: {
+    width: 8,
+    height: 8,
+    borderRadius: 4,
+    backgroundColor: colors.primary,
+    marginTop: 4,
+    flexShrink: 0
+  },
+  emptyState: {
+    justifyContent: "center",
+    alignItems: "center",
+    paddingVertical: 60,
+    paddingHorizontal: 20
+  },
+  emptyIcon: {
+    fontSize: 48,
+    marginBottom: 16
+  },
+  emptyText: {
+    fontSize: 16,
+    fontWeight: "600",
+    color: colors.text.primary,
+    marginBottom: 4
+  },
+  emptySubtext: {
+    fontSize: 13,
+    color: colors.text.secondary,
+    textAlign: "center"
+  },
+  markAllButton: {
+    borderTopWidth: 1,
+    borderTopColor: colors.border,
+    paddingVertical: 12,
+    alignItems: "center",
+    marginHorizontal: 16,
+    marginTop: 16
+  },
+  markAllText: {
+    fontSize: 14,
+    color: colors.primary,
+    fontWeight: "600"
+  }
+});
