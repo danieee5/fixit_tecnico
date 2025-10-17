@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import {
   View,
   Text,
@@ -10,7 +10,7 @@ import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { colors } from "../theme/colors";
 import AcceptRequestFlow from "../components/AcceptRequestFlow";
 
-export default function RequestDetailScreen({ route, navigation }: any) {
+export default function RequestDetailScreen({ navigation }: any) {
   const insets = useSafeAreaInsets();
   const [showAcceptFlow, setShowAcceptFlow] = useState(false);
 

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import {
   View,
   Text,
@@ -6,8 +6,7 @@ import {
   ScrollView,
   TextInput,
   TouchableOpacity,
-  FlatList,
-  Image
+  FlatList
 } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { colors } from "../theme/colors";

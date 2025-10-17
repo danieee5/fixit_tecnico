@@ -1,12 +1,11 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import {
   View,
   Text,
   StyleSheet,
   ScrollView,
   TouchableOpacity,
-  FlatList,
-  Switch
+  FlatList
 } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { colors } from "../theme/colors";
@@ -53,7 +52,6 @@ const settingsItems = [
 export default function ProfileScreen() {
   const insets = useSafeAreaInsets();
   const [showNotifications, setShowNotifications] = useState(false);
-  const [notificationsEnabled, setNotificationsEnabled] = useState(true);
   const [currentRole, setCurrentRole] = useState("cliente");
 
   const userData = {
