@@ -1,86 +1,220 @@
-import { useState, useEffect } from "react";
-import { X } from "lucide-react";
+import React, { useEffect, useState } from "react";
+import { View, Text, StyleSheet, TouchableOpacity, Animated } from "react-native";
+import { colors } from "../theme/colors";
 
 interface CertificationBannerProps {
-  isVisible: boolean;
+  isOpen: boolean;
   onClose: () => void;
 }
 
-export default function CertificationBanner({ isVisible, onClose }: CertificationBannerProps) {
-  const [isOpen, setIsOpen] = useState(false);
+export default function CertificationBanner({
+  isOpen,
+  onClose
+}: CertificationBannerProps) {
+  const [scaleAnim] = useState(new Animated.Value(isOpen ? 1 : 0.95));
+  const [opacityAnim] = useState(new Animated.Value(isOpen ? 1 : 0));
 
   useEffect(() => {
-    if (isVisible) {
-      setIsOpen(true);
+    if (isOpen) {
+      Animated.parallel([
+        Animated.timing(scaleAnim, {
+          toValue: 1,
+          duration: 300,
+          useNativeDriver: true
+        }),
+        Animated.timing(opacityAnim, {
+          toValue: 1,
+          duration: 300,
+          useNativeDriver: true
+        })
+      ]).start();
     }
-  }, [isVisible]);
+  }, [isOpen]);
 
   const handleClose = () => {
-    setIsOpen(false);
-    setTimeout(onClose, 300); // Wait for animation to complete
+    Animated.parallel([
+      Animated.timing(scaleAnim, {
+        toValue: 0.95,
+        duration: 300,
+        useNativeDriver: true
+      }),
+      Animated.timing(opacityAnim, {
+        toValue: 0,
+        duration: 300,
+        useNativeDriver: true
+      })
+    ]).start(() => {
+      onClose();
+    });
   };
 
-  if (!isVisible) return null;
+  if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
-      {/* Backdrop */}
-      <div 
-        className={`absolute inset-0 bg-black/30 backdrop-blur-sm transition-opacity duration-300 ${
-          isOpen ? 'opacity-100' : 'opacity-0'
-        }`}
-        onClick={handleClose}
-      />
-
-      {/* Banner Modal */}
-      <div
-        className={`relative w-full max-w-sm mx-4 sm:mx-0 transition-all duration-300 ${
-          isOpen ? 'scale-100 opacity-100' : 'scale-95 opacity-0'
-        }`}
-        style={{
-          background: 'rgba(255, 255, 255, 0.95)',
-          backdropFilter: 'blur(20px)',
-          borderRadius: '24px',
-          border: '1px solid rgba(255, 255, 255, 0.3)',
-          boxShadow: '0 20px 40px rgba(0, 0, 0, 0.1)'
-        }}
-      >
+    <Animated.View
+      style={[
+        styles.container,
+        {
+          transform: [{ scale: scaleAnim }],
+          opacity: opacityAnim
+        }
+      ]}
+    >
+      <View style={styles.banner}>
         {/* Close Button */}
-        <button 
-          onClick={handleClose}
-          className="absolute top-4 right-4 p-2 hover:bg-white/20 rounded-full transition-colors"
+        <TouchableOpacity
+          style={styles.closeButton}
+          onPress={handleClose}
+          activeOpacity={0.7}
         >
-          <X className="w-5 h-5 text-muted-foreground" />
-        </button>
+          <Text style={styles.closeButtonText}>✕</Text>
+        </TouchableOpacity>
+
+        {/* Icon */}
+        <View style={styles.iconContainer}>
+          <Text style={styles.icon}>🎓</Text>
+        </View>
 
         {/* Content */}
-        <div className="p-6 sm:p-8 text-center">
-          {/* Celebration Icon */}
-          <div className="text-6xl mb-4">🎉</div>
-          
-          {/* Main Message */}
-          <h2 className="text-xl font-bold text-foreground mb-4">
-            ¡Enhorabuena!
-          </h2>
-          
-          <p className="text-muted-foreground mb-6 leading-relaxed">
-            Ahora eres un técnico verificado. Los clientes verán tu insignia de confianza en tu perfil.
-          </p>
-          
-          {/* Accept Button */}
-          <button 
-            onClick={handleClose}
-            className="w-full py-3 px-6 bg-technician-primary text-white font-medium hover:bg-orange-600 transition-colors"
-            style={{borderRadius: '20px'}}
-          >
-            Aceptar
-          </button>
-        </div>
+        <Text style={styles.title}>¡Felicidades!</Text>
+        <Text style={styles.subtitle}>
+          Has sido certificado como técnico verificado
+        </Text>
+        <Text style={styles.description}>
+          Tu perfil ahora cuenta con el distintivo oficial de técnico certificado por FixIt
+          Home. Esto te ayudará a conseguir más clientes.
+        </Text>
 
-        {/* Decorative Elements */}
-        <div className="absolute -top-2 -left-2 w-8 h-8 bg-gradient-to-br from-technician-primary/20 to-technician-secondary/20 rounded-full blur-sm" />
-        <div className="absolute -bottom-2 -right-2 w-6 h-6 bg-gradient-to-br from-technician-secondary/20 to-technician-primary/20 rounded-full blur-sm" />
-      </div>
-    </div>
+        {/* Benefits */}
+        <View style={styles.benefitsContainer}>
+          <View style={styles.benefit}>
+            <Text style={styles.benefitIcon}>✓</Text>
+            <Text style={styles.benefitText}>Más visibilidad en búsquedas</Text>
+          </View>
+          <View style={styles.benefit}>
+            <Text style={styles.benefitIcon}>✓</Text>
+            <Text style={styles.benefitText}>Mayor confianza de clientes</Text>
+          </View>
+          <View style={styles.benefit}>
+            <Text style={styles.benefitIcon}>✓</Text>
+            <Text style={styles.benefitText}>Mejor posicionamiento</Text>
+          </View>
+        </View>
+
+        {/* Button */}
+        <TouchableOpacity
+          style={styles.button}
+          onPress={handleClose}
+          activeOpacity={0.7}
+        >
+          <Text style={styles.buttonText}>Ver mi perfil certificado</Text>
+        </TouchableOpacity>
+      </View>
+    </Animated.View>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    alignItems: "center",
+    marginBottom: 20,
+    marginTop: 12
+  },
+  banner: {
+    width: "100%",
+    backgroundColor: colors.background,
+    borderRadius: 24,
+    padding: 20,
+    borderWidth: 1,
+    borderColor: colors.border,
+    alignItems: "center",
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.1,
+    shadowRadius: 12,
+    elevation: 5
+  },
+  closeButton: {
+    position: "absolute",
+    top: 12,
+    right: 12,
+    width: 28,
+    height: 28,
+    borderRadius: 14,
+    backgroundColor: colors.surface,
+    justifyContent: "center",
+    alignItems: "center",
+    zIndex: 10
+  },
+  closeButtonText: {
+    fontSize: 16,
+    color: colors.text.tertiary,
+    fontWeight: "700"
+  },
+  iconContainer: {
+    width: 60,
+    height: 60,
+    borderRadius: 30,
+    backgroundColor: colors.borderLight,
+    justifyContent: "center",
+    alignItems: "center",
+    marginBottom: 16
+  },
+  icon: {
+    fontSize: 32
+  },
+  title: {
+    fontSize: 20,
+    fontWeight: "700",
+    color: colors.text.primary,
+    marginBottom: 4,
+    textAlign: "center"
+  },
+  subtitle: {
+    fontSize: 14,
+    fontWeight: "600",
+    color: colors.primary,
+    marginBottom: 8,
+    textAlign: "center"
+  },
+  description: {
+    fontSize: 13,
+    color: colors.text.secondary,
+    textAlign: "center",
+    marginBottom: 16,
+    lineHeight: 18
+  },
+  benefitsContainer: {
+    width: "100%",
+    marginBottom: 16,
+    gap: 8
+  },
+  benefit: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 8,
+    paddingVertical: 6
+  },
+  benefitIcon: {
+    fontSize: 16,
+    color: colors.status.success,
+    fontWeight: "700"
+  },
+  benefitText: {
+    fontSize: 12,
+    color: colors.text.secondary,
+    fontWeight: "500"
+  },
+  button: {
+    width: "100%",
+    backgroundColor: colors.primary,
+    borderRadius: 12,
+    paddingVertical: 12,
+    alignItems: "center"
+  },
+  buttonText: {
+    color: "#FFFFFF",
+    fontSize: 14,
+    fontWeight: "600"
+  }
+});
